@@ -73,9 +73,6 @@ public class PostGIS_Crea_fichero {
                     lineasFichero.get(i).setBarrio(name);
 
                 }
-                /*SELECT name
-                FROM public.nyc_neighborhoods
-                WHERE ST_Contains(ST_Transform(geom, 4326), ST_SetSRID( ST_Point(-74.178, 40.541), 4326));*/
 
                 rs.close();
                 stmt.close();
@@ -150,7 +147,8 @@ public class PostGIS_Crea_fichero {
         try {
             myWriter = new FileWriter("incidentes_v2.txt");
             for (int i = 0; i < lineasFichero.size(); i++) {
-                myWriter.write(lineasFichero.get(i).getFecha().substring(0, 7) + "," + lineasFichero.get(i).getLongitud() + "," + lineasFichero.get(i).getLatitud() + "," + lineasFichero.get(i).getBarrio()+"\n");
+                myWriter.write(lineasFichero.get(i).getFecha().substring(0, 7) + "," + lineasFichero.get(i).getLongitud() + "," + lineasFichero.get(i).getLatitud() + "," 
+                        + lineasFichero.get(i).getBarrio()+"\n");
             }
             myWriter.close();
         } catch (IOException ex) {
